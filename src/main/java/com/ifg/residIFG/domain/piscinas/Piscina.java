@@ -33,15 +33,6 @@ public class Piscina {
     private Configuracao configuracao;
 
     @OneToMany(mappedBy = "piscina", cascade = CascadeType.ALL)
-    private List<Sensor> sensores;
-
-    @OneToMany(mappedBy = "piscina", cascade = CascadeType.ALL)
-    private List<Atuador> atuadores;
-
-    @OneToMany(mappedBy = "piscina", cascade = CascadeType.ALL)
-    private List<Parametros> parametros;
-
-    @OneToMany(mappedBy = "piscina", cascade = CascadeType.ALL)
     private List<Alertas> alertas;
 
     public Piscina() {

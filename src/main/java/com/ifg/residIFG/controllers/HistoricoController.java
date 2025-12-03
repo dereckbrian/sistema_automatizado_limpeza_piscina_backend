@@ -2,7 +2,6 @@ package com.ifg.residIFG.controllers;
 
 import com.ifg.residIFG.domain.historico.Historico;
 import com.ifg.residIFG.infra.security.HistoricoService;
-import com.ifg.residIFG.repository.HistoricoRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -40,6 +39,6 @@ public class HistoricoController {
     // Método para recuperar todos os históricos
     @GetMapping("/historicoRecuperar")
     public List<Historico> getHistorico() {
-        return historicoService.findAll();  // Chama o serviço para listar os históricos
+        return historicoService.findAll();
     }
 }

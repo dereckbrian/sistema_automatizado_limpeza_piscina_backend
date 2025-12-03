@@ -43,15 +43,6 @@ public class AuthController {
 
             System.out.println(body.email() + "" + body.password()+ "" + body.name()+ ""+ body.role());
 
-            /*String profilePictureUrl = null;
-            if (profilePicture != null && !profilePicture.isEmpty()){
-                try{
-                    profilePictureUrl = saveImage(profilePicture);
-                }catch (Exception e){
-                    return ResponseEntity.status(500).body("Erro ao salvar a imagem");
-                }
-            }*/
-
             User user2 = new User();
             user2.setPassword(passwordEncoder.encode(body.password()));
             user2.setEmail(body.email());
@@ -67,22 +58,6 @@ public class AuthController {
 
         return ResponseEntity.badRequest().build();
     }
-
-    /*private String saveImage(MultipartFile imageFile) throws IOException {
-        String uploadDir = "src/main/resources/static/images";
-
-        String fileName = UUID.randomUUID().toString() + "_" + imageFile.getOriginalFilename();
-
-        Path upladoPath = Paths.get(uploadDir);
-        if (!Files.exists(upladoPath)){
-            Files.createDirectories(upladoPath);
-        }
-        Path filePath = upladoPath.resolve(fileName);
-
-        Files.copy(imageFile.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
-
-        return "/images" + fileName;
-    }*/
 
 }
 

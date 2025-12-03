@@ -1,8 +1,5 @@
 package com.ifg.residIFG.domain.historico;
 
-import com.ifg.residIFG.domain.piscinas.Parametros;
-import com.ifg.residIFG.domain.piscinas.Piscina;
-import com.ifg.residIFG.domain.user.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
