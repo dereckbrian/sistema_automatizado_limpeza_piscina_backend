@@ -18,17 +18,22 @@ public class LeituraSensor {
     private Long id;
 
     private Double temperatura;
-    private Boolean nivelCheio; // 1 = true, 0 = false
+    private Boolean nivelOk; // ou nivel, como você chamou
 
-    private LocalDateTime dataHora;
+    // --- NOVOS CAMPOS ---
+    private Double ph;
+    private Boolean bombaAtiva;
 
-    // Construtor vazio (obrigatório pro JPA)
+    private LocalDateTime dataHora = LocalDateTime.now();
+
+    // Construtor Vazio (Obrigatório pro JPA)
     public LeituraSensor() {}
 
-    // Construtor para facilitar
-    public LeituraSensor(Double temperatura, Boolean nivelCheio) {
+    // Construtor Completo (Atualizado)
+    public LeituraSensor(Double temperatura, Boolean nivelOk, Double ph, Boolean bombaAtiva) {
         this.temperatura = temperatura;
-        this.nivelCheio = nivelCheio;
-        this.dataHora = LocalDateTime.now(); // Pega a hora exata que chegou
+        this.nivelOk = nivelOk;
+        this.ph = ph;
+        this.bombaAtiva = bombaAtiva;
     }
 }
