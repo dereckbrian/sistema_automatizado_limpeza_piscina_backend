@@ -36,8 +36,17 @@ public class User {
     @Column(name = "password")
     private String password;
 
-    @Column(name = "profilePicture")
-    private String profilePicture;
+    @Column(name = "larguraPiscina")
+    private float larguraPiscina;
+
+    @Column(name = "comprimentoPiscina")
+    private float comprimentoPiscina;
+
+    @Column(name = "profundidadePiscina")
+    private float profundidadePiscina;
+
+    @Column(name = "temperaturaMinima")
+    private Float temperaturaMinima;
 
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
     private List<Piscina> piscinas;

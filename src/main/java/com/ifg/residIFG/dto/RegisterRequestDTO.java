@@ -6,5 +6,7 @@ public record RegisterRequestDTO(String name,
                                  String email,
                                  String password,
                                  String role,
-                                 MultipartFile profilePicture) {
+                                 Float larguraPiscina,
+                                 Float comprimentoPiscina,
+                                 Float profundidadePiscina) {
 }

@@ -15,7 +15,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/auth")
-@RequiredArgsConstructor //Serva para não precisar colocar o @Autowired em todos os private final
+@RequiredArgsConstructor
 public class AuthController {
 
     private final UserRepository repository;
@@ -48,7 +48,11 @@ public class AuthController {
             user2.setEmail(body.email());
             user2.setName(body.name());
             user2.setRole(body.role());
-            //user2.setProfilePicture(profilePictureUrl);
+
+            user2.setLarguraPiscina(body.larguraPiscina() != null ? body.larguraPiscina() : 0f);
+            user2.setComprimentoPiscina(body.comprimentoPiscina() != null ? body.comprimentoPiscina() : 0f);
+            user2.setProfundidadePiscina(body.profundidadePiscina() != null ? body.profundidadePiscina() : 0f);
+
             this.repository.save(user2);
 
             String token = this.tokenService.generateToken(user2);
