@@ -3,10 +3,10 @@ package com.ifg.residIFG.domain.user;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import com.ifg.residIFG.domain.alertas.Alertas;
-import com.ifg.residIFG.domain.piscinas.Piscina;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -48,9 +48,7 @@ public class User {
     @Column(name = "temperaturaMinima")
     private Float temperaturaMinima;
 
-    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
-    private List<Piscina> piscinas;
-
+    @JsonIgnore
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
     private List<Alertas> alertas;
 

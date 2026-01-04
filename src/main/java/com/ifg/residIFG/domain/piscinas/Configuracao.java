@@ -21,10 +21,6 @@ public class Configuracao {
     private Double limiteTurbidez;
     private Integer tempoFiltragemMin; // em minutos
 
-    @OneToOne
-    @JoinColumn(name = "piscina_id")
-    private Piscina piscina;
-
     public Configuracao() {
 
     }

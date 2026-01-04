@@ -35,14 +35,14 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
                         .requestMatchers(HttpMethod.POST, "/auth/register").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/sensor/receber").permitAll()
-                        .requestMatchers(HttpMethod.POST,"/api/user/update").permitAll()
-                        .requestMatchers(HttpMethod.GET,"/admin/pets/all").permitAll()  
-                        .requestMatchers("/admin/pets/**").authenticated() 
-                        .requestMatchers("/admin/**").hasRole("ADMIN")
-                        .requestMatchers("/images/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/user/me").permitAll()
+                        .requestMatchers(HttpMethod.PUT, "/api/user/update").permitAll()
+                        .requestMatchers("/api/user/**").permitAll()
+                        .requestMatchers("/api/alertas/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class);
+
         return http.build();
     }
 
