@@ -1,16 +1,19 @@
 package com.ifg.residIFG.domain.historico;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.ifg.residIFG.domain.user.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import java.time.LocalDateTime;
 
 @Entity
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor // Lombok cria o construtor vazio
 @Table(name = "historico")
 public class Historico {
     @Id
@@ -20,19 +23,9 @@ public class Historico {
     private String descricao;
     private LocalDateTime dataEvento;
 
-    /*@ManyToOne
-    @JoinColumn(name = "piscina_id")
-    private Piscina piscina;
-
+    // --- DESCOMENTE ISSO E ADICIONE O JsonIgnore ---
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private User user;
-
-    @ManyToOne
-    @JoinColumn(name = "parametro_id")
-    private Parametros parametro;*/
-
-    public Historico() {
-
-    }
+    @JsonIgnore // Importante para não dar loop infinito no JSON
+    private User usuario;
 }

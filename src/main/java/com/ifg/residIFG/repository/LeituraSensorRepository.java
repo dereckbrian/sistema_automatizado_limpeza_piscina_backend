@@ -13,4 +13,6 @@ public interface LeituraSensorRepository extends JpaRepository<LeituraSensor, Lo
 
     // Busca a última leitura para mostrar no card em tempo real
     LeituraSensor findTopByOrderByDataHoraDesc();
+
+
 }

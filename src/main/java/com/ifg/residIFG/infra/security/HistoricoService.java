@@ -2,7 +2,6 @@ package com.ifg.residIFG.infra.security;
 
 import com.ifg.residIFG.domain.historico.Historico;
 import com.ifg.residIFG.repository.HistoricoRepository;
-import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -21,11 +20,14 @@ public class HistoricoService {
         return repository.save(historico);
     }
 
-
     public List<Historico> findAll() {
         return repository.findAll();
     }
 
-
-    public void deleteAll(){}
+    // --- AQUI ESTAVA O PROBLEMA ---
+    // Adicionei @Transactional para garantir que o banco aceite o delete
+    @Transactional
+    public void deleteAll(){
+        repository.deleteAll(); // Faltava essa linha!
+    }
 }

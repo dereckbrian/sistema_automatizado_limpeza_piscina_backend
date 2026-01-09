@@ -5,6 +5,7 @@ import com.ifg.residIFG.domain.user.User;
 import com.ifg.residIFG.repository.AlertasRepository;
 import com.ifg.residIFG.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Map;
@@ -41,5 +42,15 @@ public class AlertasController {
     @GetMapping("/listar")
     public List<Alertas> listarAlertas(@RequestParam String email) {
         return alertasRepository.findTop20ByUsuarioEmailOrderByDataHoraDesc(email);
+    }
+
+    @DeleteMapping("/limpar")
+    public ResponseEntity<Void> limparAlertas() {
+        try {
+            alertasRepository.deleteAll(); // Apaga tudo da tabela alertas
+            return ResponseEntity.ok().build();
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().build();
+        }
     }
 }
